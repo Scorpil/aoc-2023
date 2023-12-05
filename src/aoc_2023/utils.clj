@@ -5,3 +5,6 @@
 
 (defn str-reverse [s]
   (apply str (reverse s)))
+
+(defn is-digit? [c]
+  (> (Character/digit c 10) -1))
