@@ -58,8 +58,7 @@
     (assoc processed-state :current-location (td/right current-location))))
 
 (defn aggregate-good-part-numbers [aggregator parts symbol-locations]
-  (let [initial-state {
-                       :unevaluated_parts parts 
+  (let [initial-state {:unevaluated_parts parts 
                        :good-parts 0
                        }
         reducer (fn [state symbol-location] 
@@ -77,10 +76,8 @@
                                                        :parts (conj (:parts state) (first (:unevaluated_parts state)))
                                                        :unevaluated_parts (rest (:unevaluated_parts state)))))))
                         new-state (find-match local-initial-state)]
-                    {
-                     :unevaluated_parts (:parts new-state)
-                     :good-parts (+ (:good-parts state) (aggregator (:match new-state)))
-                     }))
+                    {:unevaluated_parts (:parts new-state)
+                     :good-parts (+ (:good-parts state) (aggregator (:match new-state)))}))
         good-parts (:good-parts (reduce reducer initial-state symbol-locations))]
     good-parts))
 

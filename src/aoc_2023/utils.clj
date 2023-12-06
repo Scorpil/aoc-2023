@@ -8,3 +8,6 @@
 
 (defn is-digit? [c]
   (> (Character/digit c 10) -1))
+
+(defn sum [list]
+  (reduce + list))

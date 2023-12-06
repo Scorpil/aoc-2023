@@ -2,7 +2,8 @@
   (:require
    [aoc-2023.day1 :as day1]
    [aoc-2023.day2 :as day2]
-   [aoc-2023.day3 :as day3]
+   [aoc-2023.day3 :as day3] 
+   [aoc-2023.day4 :as day4]
    [clojure.tools.cli :refer [parse-opts]])
   (:gen-class))
 
@@ -24,7 +25,9 @@
    [2 1] day2/part1
    [2 2] day2/part2
    [3 1] day3/part1
-   [3 2] day3/part2})
+   [3 2] day3/part2
+   [4 1] day4/part1
+   [4 2] day4/part2})
 
 (defn -main
   [& args]
