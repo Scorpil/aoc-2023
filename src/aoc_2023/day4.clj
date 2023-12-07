@@ -1,16 +1,13 @@
 (ns aoc-2023.day4
   (:require [clojure.string :as str]
-            [aoc-2023.utils :refer [sum]]))
-
-(defn parse-space-separated-numbers [line]
-  (map #(Integer/parseInt % 10) (str/split line #"[ ]+")))
+            [aoc-2023.utils :refer [sum parse-digit-line]]))
 
 (defn parse-line [line]
   (let [
         lotto-str (second (str/split line #":[ ]+"))
         [winning-str selected-str] (str/split lotto-str #" \|[ ]+")]
-    {:winning (parse-space-separated-numbers winning-str)
-     :selected (parse-space-separated-numbers selected-str)}))
+    {:winning (parse-digit-line winning-str)
+     :selected (parse-digit-line selected-str)}))
 
 (defn parse-input [input]
   (map parse-line (str/split input #"\n")))
